@@ -1,0 +1,39 @@
+version: '3.7' 
+
+services: 
+  web: 
+    container_name: Dj 
+    build: .
+    #command: python /usr/src/aweb/manage.py runserver 0.0.0.0:8000 
+    command: gunicorn aweb.wsgi:application --bind 0.0.0.0:8000
+    volumes: 
+      - ./:/usr/src/aweb/ 
+      - static_volume:/usr/src/aweb/static
+    #ports: 
+    #- 8000:8000
+    expose:
+      - 8000
+    env_file: 
+      - ./database/db_env 
+    depends_on:
+      - db
+  db:
+    container_name: Pg
+    image: postgres:10.5-alpine
+#    env_file: 
+#      - ./database/db_env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+  nginx:
+    container_name: Ng
+    build: ./nginx
+    volumes: 
+      - static_volume:/usr/src/aweb/static
+    ports:
+      - 8000:80
+    depends_on:
+      - web
+
+volumes:
+  postgres_data:
+  static_volume:
