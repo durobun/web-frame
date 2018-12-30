@@ -1,4 +1,4 @@
-SQL_ENGINE=django.db.backends.postgresql 
+SQL_ENGINE=django.db.backends.postgresql_psycopg2 
 SQL_DATABASE=postgres 
 SQL_USER=postgres 
 SQL_PASSWORD=postgres 
