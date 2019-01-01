@@ -9,6 +9,7 @@ services:
     volumes: 
       - ./:/usr/src/aweb/ 
       - static_volume:/usr/src/aweb/static
+
     #ports: 
     #- 8000:8000
     expose:
@@ -29,6 +30,7 @@ services:
     build: ./nginx
     volumes: 
       - static_volume:/usr/src/aweb/static
+
     ports:
       - 8000:80
     depends_on:

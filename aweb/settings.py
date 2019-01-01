@@ -25,7 +25,7 @@ SECRET_KEY = '9)87bke@cc!zkjh4k6#5t!@=l(tgc&$c98-ui&_eno519rtpl2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost',]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','juskim.iptime.org',]
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'path',
-    'repath',
+    #'repath',
     'fbv',
 ]
 
