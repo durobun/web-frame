@@ -25,6 +25,7 @@ extra_patterns = [
 urlpatterns = [
     path('', include('blog.urls')),
     path('admin/', admin.site.urls),
+    path('rest_framework', include('rest_framework.urls')),
     path('path/', include('path.urls')),
     #path('repath/', include('repath.urls')),
     path('extra/', include(extra_patterns)),
